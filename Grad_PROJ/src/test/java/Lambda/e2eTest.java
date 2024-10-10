@@ -1,6 +1,7 @@
 package Lambda;
 
 import Pages.*;
+import io.qameta.allure.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -21,9 +22,12 @@ public class e2eTest extends Base {
     private ProductPage productPage;
     private ConfirmOrderPage confirmOrderPage1;
 
+    @Owner("Aya Fawaz")
+    @Story("Register")
+    @Description("Create New Account with valid data")
+    @Severity(SeverityLevel.BLOCKER)
     @Test(priority = 1)
     public void RegisterSuccessfully() throws IOException {
-
         homePage = new HomePage(driver);
         registerPage = new RegisterPage(driver);//1- Navigate to register page
         homePage.MyAccount_RegisterButton();
@@ -39,11 +43,14 @@ public class e2eTest extends Base {
         registerPage.checkContinueButton();
         //assert for SuccessCreating_Account:
        registerPage.TestSuccessCreating_Account();
-        TakeScreenShot("RegisterSuccessfully",driver);
         registerPage.ClickContinueToNaviToAcc();
         homePage = registerPage.ClickOnLOGO();
 
     }
+
+    @Description("Given i try to add one product in my cart, When I am in home page, " +
+            "Then I should be able to edit cart by updating product's quantity then remove it successfully")
+    @Severity(SeverityLevel.CRITICAL)
     @Test(priority = 2)
     public void RemoveProduct() throws IOException {
         homePage = new HomePage(driver);
@@ -54,8 +61,8 @@ public class e2eTest extends Base {
         productPage = homePage.SelectProduct();  // to be removed
    //add scroll here:
         productPage.AddProductToWishList();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2)); //new
         TakeScreenShot("AddProductToWishListSuccessfully",driver);
-      //  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         productPage.CloseWishList();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
         productPage.AddToCartShopping();
@@ -71,6 +78,9 @@ public class e2eTest extends Base {
     }
 
     @Test(priority = 3)
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Given i try to add one product in my cart, When I am in home page, " +
+            "Then I should be able to checkout directly")
     public void AddProduct() {
         homePage = new HomePage(driver);
         productPage = new ProductPage(driver);
@@ -86,6 +96,9 @@ public class e2eTest extends Base {
     }
 
     @Test(priority = 4)
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Given i try to complete purchase process, When I used a registered account," +
+            "Then I should be asked to complete only Billing Address form and submit order successfully")
     public void SubmitOrder() throws IOException {
         checkoutPage = new CheckoutPage(driver);
         confirmOrderPage1 = new ConfirmOrderPage(driver);

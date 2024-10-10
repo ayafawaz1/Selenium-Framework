@@ -1,5 +1,6 @@
 package Lambda;
 
+import io.qameta.allure.Allure;
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -17,6 +18,7 @@ import org.testng.annotations.DataProvider;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class Base {
         protected WebDriver driver;
@@ -42,6 +44,8 @@ public class Base {
             File file=new File(System.getProperty("user.dir")+"//ScreenShots//"+TcName+".png");
             //download apache common io  repository for screenshot
             FileUtils.copyFile(Source,file);
+            InputStream isfile=new FileInputStream(file);
+            Allure.addAttachment("Screenshots",isfile);
             return System.getProperty("user.dir")+"//reports//"+TcName+".png";
         }
 
