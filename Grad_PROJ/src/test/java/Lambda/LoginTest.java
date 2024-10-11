@@ -13,7 +13,7 @@ public class LoginTest extends Base{
     private HomePage homePage;
     private LoginPage loginpage;
 
-    @Test(dataProvider = "LoginTest")
+    @Test(dataProvider = "getLoginData",dataProviderClass = Base.class)
     public void Login(String email,String password)  {
        // extentReports.createTest("Login");
         homePage=new HomePage(driver);
