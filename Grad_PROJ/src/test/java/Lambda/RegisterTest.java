@@ -2,7 +2,6 @@ package Lambda;
 
 import Pages.HomePage;
 import Pages.RegisterPage;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;

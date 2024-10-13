@@ -5,8 +5,9 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
-import org.checkerframework.checker.fenum.qual.SwingVerticalOrientation;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -25,10 +26,10 @@ public class SmokeTest extends Base {
         homePage.TestVisibilityOfLogo();
     }
 
-    @Story("Log In")
+    @Story("Verify Login Credentials")
     @Description("When I try to Sign in with valid and invalid data")
     @Severity(SeverityLevel.BLOCKER)
-    @Test(dataProvider = "LoginTest",priority = 1)
+    @Test(dataProvider = "getLoginData",priority = 1)
     public void Login(String email, String password)
     {
         homePage=new HomePage(driver);
@@ -37,6 +38,17 @@ public class SmokeTest extends Base {
         loginPage.EnterMailAddress(email);
         loginPage.EnterPassword(password);
         loginPage.Click_Submit();
+        try
+        {
+            Assert.assertTrue(driver.getCurrentUrl().contains("account"),"Login failed for user:"+email);
+        }
+        catch (Exception e)
+        {
+            WebDriverWait errorMessage = new WebDriverWait(driver, Duration.ofSeconds(5));
+            errorMessage.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='alert alert-danger alert-dismissible']")));
+            Assert.assertTrue(driver.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']")).isDisplayed(),
+                    "Error message should be displayed for invalid login");
+        }
     }
 
     @Story("Log Out")
@@ -44,14 +56,14 @@ public class SmokeTest extends Base {
     @Test(dependsOnMethods ="Login")
     public void LogOutFunction()
     {
-      // extentReports.createTest("LogOut");
        loginPage.Click_Logout();
         String actual=driver.findElement(By.xpath("//div/h1")).getText();
         String expected="Account Logout";
         Assert.assertTrue(actual.contains(expected));
         homePage=loginPage.ClickContinueToGoToHome();
     }
-    @Story("Search")
+
+    @Story("Search for 'samsung' ")
     @Description("Given i search for exist product, When I am in Home page, Then I should get this product")
     @Severity(SeverityLevel.NORMAL)
     @Test()

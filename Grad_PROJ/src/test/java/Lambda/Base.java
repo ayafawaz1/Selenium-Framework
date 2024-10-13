@@ -11,6 +11,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -27,8 +28,9 @@ public class Base {
         @BeforeClass
         public void SetUp()
         {
-            //driver=new EdgeDriver();
-            driver=new ChromeDriver();
+            ChromeOptions options=new ChromeOptions();
+            options.addArguments("--incognito");
+            driver=new ChromeDriver(options);
             driver.manage().window().maximize();
             driver.get("https://ecommerce-playground.lambdatest.io/index.php?route=common/home");
         }
@@ -36,7 +38,7 @@ public class Base {
     @AfterClass
     public void TearOut()
     {
-        //driver.quit();
+        driver.quit();
     }
 
      public static String TakeScreenShot(String TcName,WebDriver driver) throws IOException {
@@ -60,17 +62,17 @@ public class Base {
         XSSFSheet sheet = workbook.getSheetAt(0);
 
         int rowCount = sheet.getPhysicalNumberOfRows();
-        Object[][] data = new Object[rowCount - 1][2]; // Only two columns for email and password
+        Object[][] data = new Object[rowCount - 1][2];
 
-        for (int i = 1; i < rowCount; i++) { // Start from 1 to skip header row
+        for (int i = 1; i < rowCount; i++) {
             XSSFRow row = sheet.getRow(i);
             if (row != null) {
                 data[i - 1][0] = formatter.formatCellValue(row.getCell(0)); // Email
                 data[i - 1][1] = formatter.formatCellValue(row.getCell(1)); // Password
             }
         }
-        workbook.close(); // Always close the workbook
-        fis.close(); // Close the file input stream
+        workbook.close();
+        fis.close();
         return data;
     }
 

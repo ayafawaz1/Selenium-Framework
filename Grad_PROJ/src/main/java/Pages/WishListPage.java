@@ -17,13 +17,6 @@ public class WishListPage extends Parent{
         return wishlistEmptyMessage.getText();
     }
 
-//    @FindBy(id="content")
-//    private  WebElement wishlistTable;
-//    public boolean wishlistTableIsDisplayed()
-//    {
-//        wishlistTable.isDisplayed();
-//        return true;
-//    }
 
     @FindBy(xpath = "//td[@class='text-left'][2]")
     private WebElement ProductModel;

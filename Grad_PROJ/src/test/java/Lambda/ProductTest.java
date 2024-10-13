@@ -4,7 +4,6 @@ import Pages.HomePage;
 import Pages.ProductPage;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
 
 public class ProductTest extends Base{
     private HomePage homepage;

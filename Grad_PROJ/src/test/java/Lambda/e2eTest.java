@@ -68,7 +68,7 @@ public class e2eTest extends Base {
         productPage.AddToCartShopping();
         cartPage = productPage.ViewCart();
         cartPage.setQuantity("4");
-       cartPage.UpdateProductQuantity();  //i return text inside it so u can remove assert
+       cartPage.UpdateProductQuantity();
         cartPage.TestUpdatingQuantity();
        // System.out.println("Cart Total: " +cartPage.GetCartTotal());
         cartPage.GetCartTotal();

@@ -16,8 +16,8 @@ public class CartTest extends Base{
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         cartpage =homePage.ClickShoppingCart();
         cartpage.GoToShoppingCart();
-        //cartpage.GetCartEmptyMessage();
-        System.out.println(cartpage.GetCartEmptyMessage());
+        cartpage.GetCartEmptyMessage();
+       // System.out.println(cartpage.GetCartEmptyMessage());
         cartpage.ContinueShoppingForEmptyCart();
 
     }
