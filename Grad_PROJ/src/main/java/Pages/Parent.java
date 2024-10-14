@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 public class Parent {
-//allure serve E:\LambdaTest\Grad_PROJ\allure-results
+
         protected WebDriver driver;
     Parent(WebDriver driver)
         {

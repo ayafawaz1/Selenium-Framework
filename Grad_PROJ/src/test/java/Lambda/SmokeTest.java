@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
 import java.time.Duration;
 
 public class SmokeTest extends Base {
@@ -20,10 +21,11 @@ public class SmokeTest extends Base {
 
     @Description("check the visibility of logo in the top side of the home page")
     @Test()
-    public void IsLogoISVisible() {
+    public void IsLogoISVisible() throws IOException {
         // extentReports.createTest("VisibilityOfLogo");
         homePage = new HomePage(driver);
         homePage.TestVisibilityOfLogo();
+        TakeScreenShot("Check Visibility of logo on the top side of the page",driver);
     }
 
     @Story("Verify Login Credentials")
@@ -54,9 +56,9 @@ public class SmokeTest extends Base {
     @Story("Log Out")
     @Severity(SeverityLevel.CRITICAL)
     @Test(dependsOnMethods ="Login")
-    public void LogOutFunction()
-    {
+    public void LogOutFunction() throws IOException {
        loginPage.Click_Logout();
+       TakeScreenShot("Check the functionality of Log out function",driver);
         String actual=driver.findElement(By.xpath("//div/h1")).getText();
         String expected="Account Logout";
         Assert.assertTrue(actual.contains(expected));

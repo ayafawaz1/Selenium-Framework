@@ -41,21 +41,6 @@ public class LoginTest extends Base{
                     "Error message should be displayed for invalid login");
         }
     }
-      // ===============
-//        if(type.equals("valid"))
-//        {
-//            WebDriverWait waitForLogOut = new WebDriverWait(driver, Duration.ofSeconds(5));
-//            waitForLogOut.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//aside//div/a)[14]")));
-//            loginpage.Click_Logout();
-//            WebDriverWait waitForConitnue = new WebDriverWait(driver, Duration.ofSeconds(5));
-//            waitForConitnue.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div/a[@class='btn btn-primary']")));
-//            homePage=loginpage.ClickContinueToGoToHome();
-//        }
-//        else
-//        {
-//            WebDriverWait errorMessage = new WebDriverWait(driver, Duration.ofSeconds(5));
-//            errorMessage.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='alert alert-danger alert-dismissible']")));
-//        }
 
     }
 

@@ -175,14 +175,7 @@ public class CheckoutPage extends Parent{
         continueButton.click();
         return new ConfirmOrderPage(driver);
 
-        //هعمل اسيرت بالعنوان عشان اتيست الكونفرم اوردر
+
     }
 
-////lsa
-//        @FindBy(xpath = "//h1[contains(text(), 'Checkout')]")
-//        private WebElement checkoutHeader;
-//
-//        public boolean isCheckoutHeaderDisplayed() {
-//            return checkoutHeader.isDisplayed();
-//        }
 }

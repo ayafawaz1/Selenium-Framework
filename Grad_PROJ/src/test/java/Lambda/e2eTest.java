@@ -59,10 +59,10 @@ public class e2eTest extends Base {
         String scriptofproducts = "window.scrollBy(0,1800)";
         homePage.ScrollTo(scriptofproducts);
         productPage = homePage.SelectProduct();  // to be removed
-   //add scroll here:
         productPage.AddProductToWishList();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2)); //new
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
         TakeScreenShot("AddProductToWishListSuccessfully",driver);
+         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
         productPage.CloseWishList();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
         productPage.AddToCartShopping();
@@ -89,7 +89,6 @@ public class e2eTest extends Base {
         WebDriverWait waitForContinueShopping = new WebDriverWait(driver, Duration.ofSeconds(5));
         waitForContinueShopping.until(ExpectedConditions.presenceOfElementLocated(By.className(( "buttons"))));
         homePage = cartPage.ContinueShoppingForEmptyCart();
-        //add assert for navigate:
         homePage.ScrollTo(scriptofproducts);
         productPage = homePage.SelectProduct2();
         checkoutPage = productPage.BuyNow();
@@ -108,10 +107,10 @@ public class e2eTest extends Base {
         checkoutPage.AddCityInBillingAdd("Esna");
         checkoutPage.selectCountryInBillingAdd();
         checkoutPage.selectRegionInBillingAdd();
-        //add scrol here
         checkoutPage.checkTermsConditionsInBillingAdd();
-       driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+       //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
         confirmOrderPage1 = checkoutPage.clickContinue();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));//new
         confirmOrderPage1.TESTNavigateToConfirm();
         confirmOrderPage1.lastConfirmOrder();
         confirmOrderPage1.TESTNavigateToSuccessConfirm();

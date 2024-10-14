@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite parallel="tests" name="All Test Suite" verbose="2" preserve-order="true">
-<test name="E2E Tests">
-    <classes>
-        <class name="Lambda.e2eTest"/>
-        <!-- Add more test classes here -->
-    </classes>
-</test>
+<suite parallel="tests" thread-count="2" name="All Test Suite" verbose="2" preserve-order="true">
+
+    <test name="E2E Tests">
+        <classes>
+            <class name="Lambda.e2eTest"/>
+        </classes>
+    </test>
+
     <test name="Smoke Tests">
         <classes>
             <class name="Lambda.SmokeTest"/>

@@ -4,12 +4,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+//allure serve E:\LambdaTest\Grad_PROJ\allure-results
+
 public class WishListPage extends Parent{
     WishListPage(WebDriver driver) {
         super(driver);
     }
 
-    //add remove from wishlist method..
     @FindBy(xpath="//div[@id=\"content\"]/p")
     private WebElement wishlistEmptyMessage;
     public String GetWishListEmptyMessage()

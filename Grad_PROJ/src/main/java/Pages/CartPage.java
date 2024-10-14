@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
+import java.time.Duration;
+
 public class CartPage extends Parent{
     public CartPage(WebDriver driver) {
         super(driver);
@@ -104,6 +106,7 @@ public class CartPage extends Parent{
 
     public  void TestCartISEmptyByMessage()
     {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         String actualmessage=driver.findElement(By.xpath("//div[@id='content']/p")).getText();
         String expectedEmptyCart_Message="Your shopping cart is empty!";
         Assert.assertTrue(actualmessage.contains(expectedEmptyCart_Message));

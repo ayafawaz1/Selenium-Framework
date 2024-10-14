@@ -76,58 +76,5 @@ public class Base {
         return data;
     }
 
-//    @DataProvider
-//    public static Object[][] getLoginData() throws IOException {
-//            String excelsheetpath="E:\\Testing-track-iti\\usersData.xlsx";
-//       // FileInputStream fis = new FileInputStream("E:\\Testing-track-iti\\usersData.xlsx");
-//        DataFormatter formatter=new DataFormatter();
-//        FileInputStream fis=new FileInputStream(excelsheetpath);
-//        XSSFWorkbook workbook = new XSSFWorkbook(fis);
-//        XSSFSheet sheet = workbook.getSheetAt(0);
-//      //  int rowCount = sheet.getPhysicalNumberOfRows();
-//        XSSFRow Row = sheet.getRow(0);
-//        int rowCount = sheet.getPhysicalNumberOfRows();
-//        int colCount = Row.getLastCellNum();
-//        Object data[][] = new Object[rowCount - 1][colCount];
-//        for(int i=0;i<rowCount-1;i++)
-//        {
-//            //row=sheet.getRow(i+1);
-//            XSSFRow row=sheet.getRow(i+1);
-//            for(int j=0;j<colCount;j++)
-//            {
-//                if (row==null)
-//                    data[i][j]="";
-//                else
-//                {
-//                    XSSFCell cell= row.getCell(j);
-//                    if(cell==null)
-//                        data[i][j]="";
-//                    else
-//                    {
-//                        // String d= (data[i][j]="").toString();
-//                       // String values= cell.toString();
-//                        String values= formatter.formatCellValue(cell);
-//                        data[i][j]=values;
-//                        //System.out.println(values);
-//                    }
-//                }
-//            }
-//        }
-//        workbook.close(); // Always close the workbook
-//        fis.close();
-//        return data;
-//    }
-//
-//        @DataProvider(name="LoginTest")
-//        public static Object [][] userData()
-//        {
-//            return new Object[][]
-//                    {
-//                            {"aya12gmail.com","123456"},//not valid email not have @
-//                            {"111@gmail.com",""},//empty pass
-//                            {"","12345"},
-//                            {"Aya@gmail.com","12345"} //right data to login
-//                    };
-//        }
     }
 
