@@ -22,7 +22,6 @@ public class SmokeTest extends Base {
     @Description("check the visibility of logo in the top side of the home page")
     @Test()
     public void IsLogoISVisible() throws IOException {
-        // extentReports.createTest("VisibilityOfLogo");
         homePage = new HomePage(driver);
         homePage.TestVisibilityOfLogo();
         TakeScreenShot("Check Visibility of logo on the top side of the page",driver);

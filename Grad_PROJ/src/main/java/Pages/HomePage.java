@@ -1,16 +1,11 @@
 package Pages;
 
 import dev.failsafe.internal.util.Assert;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 
 public class HomePage extends Parent {
 
@@ -31,7 +26,6 @@ public class HomePage extends Parent {
     public RegisterPage MyAccount_RegisterButton() {
         a.moveToElement(MyAccountElement).build().perform();
         Clicking(RegisterButtonElement);
-        // RegisterButtonElement.click();
         return new RegisterPage(driver);
     }
 
@@ -67,9 +61,9 @@ private WebElement searchInput;
         return new CartPage(driver);
     }
 
-    //(xpath="(//div/div[@class='product-thumb-top'])[13]") //palm treo out of stock product
 
-    @FindBy(xpath = "(//div/div[@class='product-thumb-top'])[15]")  //red watch to be removed
+
+    @FindBy(xpath = "(//div/div[@class='product-thumb-top'])[15]")  //red watch
     private WebElement Product;
 
     public ProductPage SelectProduct()

@@ -38,13 +38,6 @@ public class CheckoutPage extends Parent{
         SentText(CityInBillingAdd,city);
     }
 
-//    @FindBy(id="input-payment-postcode")
-//    WebElement PostCodeInBillingAdd;
-//    public void AddPostCodeInBillingAdd(String code)
-//    {
-//        SentText(PostCodeInBillingAdd,code);
-//    }
-
     @FindBy(id ="input-payment-country")
     private WebElement countryDropdownInBillingAdd;
     public void selectCountryInBillingAdd()

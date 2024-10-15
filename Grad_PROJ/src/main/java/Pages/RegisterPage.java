@@ -1,14 +1,9 @@
 package Pages;
-
-import io.qameta.allure.testng.TestInstanceParameter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
-//import org.testng.Assert;
-
-//import org.testng.Assert;
 
 
 public class RegisterPage extends Parent{
@@ -58,7 +53,7 @@ public class RegisterPage extends Parent{
     {
         SentText(confirmPassword_Field,confirmPassword);
     }
-//(//div/label[@class='custom-control-label'])[3]  //another path for privacy check..
+
     @FindBy(xpath="//div[@class='float-right']/div")
     protected WebElement privacyPolicyCheckBox;
     public void checkPrivacyPolicyBox()

@@ -17,7 +17,6 @@ public class CartTest extends Base{
         cartpage =homePage.ClickShoppingCart();
         cartpage.GoToShoppingCart();
         cartpage.GetCartEmptyMessage();
-       // System.out.println(cartpage.GetCartEmptyMessage());
         cartpage.ContinueShoppingForEmptyCart();
 
     }

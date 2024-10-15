@@ -108,9 +108,9 @@ public class e2eTest extends Base {
         checkoutPage.selectCountryInBillingAdd();
         checkoutPage.selectRegionInBillingAdd();
         checkoutPage.checkTermsConditionsInBillingAdd();
-       //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
+       driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
         confirmOrderPage1 = checkoutPage.clickContinue();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));//new
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));//new
         confirmOrderPage1.TESTNavigateToConfirm();
         confirmOrderPage1.lastConfirmOrder();
         confirmOrderPage1.TESTNavigateToSuccessConfirm();

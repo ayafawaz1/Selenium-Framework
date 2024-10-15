@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite parallel="tests" thread-count="2" name="All Test Suite" verbose="2" preserve-order="true">
+<suite name="All Test Suite" verbose="2" preserve-order="true">
 
     <test name="E2E Tests">
         <classes>

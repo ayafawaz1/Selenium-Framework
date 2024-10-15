@@ -1,6 +1,5 @@
 package Lambda;
 
-import Pages.CartPage;
 import Pages.CheckoutPage;
 import Pages.ProductPage;
 import org.openqa.selenium.By;

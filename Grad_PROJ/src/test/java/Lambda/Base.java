@@ -3,7 +3,7 @@ package Lambda;
 import io.qameta.allure.Allure;
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.DataFormatter;
-import org.apache.poi.xssf.usermodel.XSSFCell;
+
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -41,11 +41,11 @@ public class Base {
         driver.quit();
     }
 
+    //download apache common io  repository for screenshot
      public static String TakeScreenShot(String TcName,WebDriver driver) throws IOException {
             TakesScreenshot ts=(TakesScreenshot)driver ;
             File Source=ts.getScreenshotAs(OutputType.FILE);
             File file=new File(System.getProperty("user.dir")+"//ScreenShots//"+TcName+".png");
-            //download apache common io  repository for screenshot
             FileUtils.copyFile(Source,file);
             InputStream isfile=new FileInputStream(file);
             Allure.addAttachment("Screenshots",isfile);

@@ -34,7 +34,6 @@ public class LoginTest extends Base{
         }
         catch (Exception e)
         {
-            // Wait for error ms
             WebDriverWait errorMessage = new WebDriverWait(driver, Duration.ofSeconds(5));
             errorMessage.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='alert alert-danger alert-dismissible']")));
             Assert.assertTrue(driver.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']")).isDisplayed(),
